@@ -12,8 +12,11 @@ export default class extends Phaser.Group {
 
         let y = 0
         for (let i = 0; i < this.numCells; i++) {
+            // Random initial images
             let cell = this.game.add.sprite(x, y, 'image' + parseInt(Math.random() * (4 - 1) + 1))
+            // Size image square
             cell.height = this.game.height / this.numCells
+            cell.width = this.game.height / this.numCells
             this.add(cell)
             y += cell.height
         }
