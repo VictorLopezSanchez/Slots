@@ -9,12 +9,13 @@ export default class extends Phaser.State {
     }
 
     createWorld () {
-        let background = this.add.sprite(this.game.width * 0.5, this.game.height * 0.5, 'background', null)
-        let play = new Play(this.game, this.game.width * 0.5, this.game.height * 0.5, 'Play Game!', () => {
+        let background = this.add.sprite(0, 0, 'background', null)
+        let play = new Play(this.game, this.world.centerX, this.world.centerY, 'Play Game!', () => {
             this.game.state.start('Game')
         })
 
         this.game.add.existing(play)
-        background.anchor.set(0.5)
+        background.height = this.game.height
+        background.width = this.game.width
     }
 }
