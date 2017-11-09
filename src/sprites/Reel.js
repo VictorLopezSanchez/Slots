@@ -17,6 +17,7 @@ export default class extends Phaser.Group {
             // Size image square
             cell.height = this.game.height / this.numCells
             cell.width = this.game.height / this.numCells
+            cell.tint = '0xffffff'
             this.add(cell)
             y += cell.height
         }

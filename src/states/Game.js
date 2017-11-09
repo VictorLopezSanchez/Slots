@@ -5,6 +5,7 @@ import Button from '../sprites/Button'
 
 const NUM_REELS = 4
 const NUM_CELLS = 4
+const SIZE_IMAGE_SLOT = 143
 
 export default class extends Phaser.State {
     init () {
@@ -60,10 +61,10 @@ export default class extends Phaser.State {
         background.width = this.game.width
 
         // Init Reels
-        let x = 0
+        let x = ((this.game.width / NUM_REELS) / 2) - (SIZE_IMAGE_SLOT / 2)
         for (let i = 0; i < NUM_REELS; i++) {
             this.reels[i] = new Reel(this.game, x, NUM_CELLS)
-            x += this.game.width / 4
+            x += this.game.width / NUM_REELS
         }
 
         // Draw rectangle to hide first cell of reels
