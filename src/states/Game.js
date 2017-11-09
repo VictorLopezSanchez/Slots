@@ -3,7 +3,9 @@ import Phaser from 'phaser'
 import Reel from '../sprites/Reel'
 import Button from '../sprites/Button'
 
-const NUM_REELS = 5
+const NUM_REELS = 4
+const NUM_CELLS = 4
+const SIZE_IMAGE_SLOT = 143
 
 export default class extends Phaser.State {
     init () {
@@ -54,21 +56,21 @@ export default class extends Phaser.State {
 
     createWorld () {
         // Background
-        let background = this.add.sprite(this.game.width * 0.5, this.game.height * 0.5, 'background', null)
-        background.anchor.set(0.5)
+        let background = this.add.sprite(0, 0, 'background', null)
+        background.height = this.game.height
+        background.width = this.game.width
 
         // Init Reels
-        let x = 60
-        let y = 0
+        let x = ((this.game.width / NUM_REELS) / 2) - (SIZE_IMAGE_SLOT / 2)
         for (let i = 0; i < NUM_REELS; i++) {
-            this.reels[i] = new Reel(this.game, x, y)
-            x += this.reels[i].width + 20
+            this.reels[i] = new Reel(this.game, x, NUM_CELLS)
+            x += this.game.width / NUM_REELS
         }
 
         // Draw rectangle to hide first cell of reels
         let graphics = this.game.add.graphics(0, 0)
         graphics.beginFill(0xFF3300)
-        graphics.drawRect(0, 0, 960, 160)
+        graphics.drawRect(0, 0, this.game.width, this.game.height / 4)
         graphics.endFill()
 
         // Play Button

@@ -1,19 +1,25 @@
 import Phaser from 'phaser'
 
-const NUM_CELLS = 4
 const REEL_SPEED = 125
 
 export default class extends Phaser.Group {
-    constructor (game, x, y) {
+    constructor (game, x, numCells) {
         super(game, game.world, 'Reel')
 
+        this.numCells = numCells
         this.runReel = false
         this.game = game
 
-        for (let i = 0; i < NUM_CELLS; i++) {
+        let y = 0
+        for (let i = 0; i < this.numCells; i++) {
+            // Random initial images
             let cell = this.game.add.sprite(x, y, 'image' + parseInt(Math.random() * (4 - 1) + 1))
+            // Size image square
+            cell.height = this.game.height / this.numCells
+            cell.width = this.game.height / this.numCells
+            cell.tint = '0xffffff'
             this.add(cell)
-            y += cell.height + 60
+            y += cell.height
         }
     }
 
@@ -36,7 +42,7 @@ export default class extends Phaser.Group {
 
     shift () {
         this.reset()
-        for (let i = NUM_CELLS - 1; i > 0; i--) {
+        for (let i = this.numCells - 1; i > 0; i--) {
             this.children[i].loadTexture(this.children[i - 1].key)
         }
         this.children[0].loadTexture('image' + parseInt(Math.random() * (4 - 1) + 1))
