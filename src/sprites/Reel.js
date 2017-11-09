@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 
 const REEL_SPEED = 125
+const BOUNCE = 90
 
 export default class extends Phaser.Group {
     constructor (game, x, numCells) {
@@ -24,7 +25,7 @@ export default class extends Phaser.Group {
     }
 
     spin () {
-        this.createBounce(this.children[0].height + 60, REEL_SPEED, this.shift)
+        this.createBounce(this.children[0].height + (this.children[0].height / 2), REEL_SPEED, this.shift)
     }
 
     reset () {
@@ -53,7 +54,7 @@ export default class extends Phaser.Group {
     }
 
     downUpEffect () {
-        this.createBounce(90, REEL_SPEED, () => {
+        this.createBounce(BOUNCE, REEL_SPEED, () => {
             this.createBounce(0, REEL_SPEED)
         })
     }
