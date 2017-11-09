@@ -18,10 +18,7 @@ export default class extends Phaser.Group {
     }
 
     spin () {
-        let bounce = this.game.add.tween(this)
-        bounce.to({ y: this.children[0].height + 60 }, REEL_SPEED, Phaser.Linear)
-        bounce.onComplete.add(this.shift, this)
-        bounce.start()
+        this.createBounce(this.children[0].height + 60, REEL_SPEED, this.shift)
     }
 
     reset () {
@@ -44,5 +41,23 @@ export default class extends Phaser.Group {
         }
         this.children[0].loadTexture('image' + parseInt(Math.random() * (4 - 1) + 1))
         if (this.runReel) this.spin()
+        else {
+            this.downUpEffect()
+        }
+    }
+
+    downUpEffect () {
+        this.createBounce(90, REEL_SPEED, () => {
+            this.createBounce(0, REEL_SPEED)
+        })
+    }
+
+    createBounce (y, speed, callback) {
+        let bounce = this.game.add.tween(this)
+        bounce.to({ y: y }, speed, Phaser.Linear)
+        if (callback !== undefined) bounce.onComplete.add(callback, this)
+        bounce.start()
+
+        return bounce
     }
 }

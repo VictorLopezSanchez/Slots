@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import Reel from '../sprites/Reel'
 import Button from '../sprites/Button'
 
-const NUM_REELS = 4
+const NUM_REELS = 5
 
 export default class extends Phaser.State {
     init () {
@@ -58,7 +58,7 @@ export default class extends Phaser.State {
         background.anchor.set(0.5)
 
         // Init Reels
-        let x = 0
+        let x = 60
         let y = 0
         for (let i = 0; i < NUM_REELS; i++) {
             this.reels[i] = new Reel(this.game, x, y)
