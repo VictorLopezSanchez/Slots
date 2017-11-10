@@ -1,0 +1,56 @@
+{
+  "markdown": {
+    "hardwrap": false,
+    "parser": "gfm"
+  },
+  "opts": {
+    "debug": true,
+    "destination": "./docs",
+    "encoding": "utf8",
+    "lenient": true,
+    "mainpagetitle": "Slots",
+    "private": false,
+    "readme": "./README.md",
+    "recurse": true,
+    "template": "./node_modules/docdash"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "plugins/summarize"
+  ],
+  "sourceType": "module",
+  "source": {
+    "exclude": [
+      "./node_modules/",
+      "./assets/",
+      "./dist/"
+    ],
+    "excludePattern": "(^|\\/|\\\\)_",
+    "include": "./src/",
+    "includePattern": ".+\\.js(doc)?$"
+  },
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "collapseSymbols": false,
+    "copyright": "Víctor López Sánchez",
+    "dateFormat": "YYYY-MM-DD",
+    "disablePackagePath": true,
+    "footer": "",
+    "inverseNav": true,
+    "linenums": true,
+    "logoFile": "",
+    "methodHeadingReturns": false,
+    "monospaceLinks": false,
+    "navType": "vertical",
+    "outputSourceFiles": false,
+    "outputSourcePath": true,
+    "protocol": "html://",
+    "search": false,
+    "sourceRootPath": "./",
+    "systemName": "Slots",
+    "theme": "Slot Phaser"
+  }
+}

@@ -7,6 +7,9 @@ const NUM_REELS = 4
 const NUM_CELLS = 4
 const SIZE_IMAGE_SLOT = 143
 
+/**
+ * Class logic Game
+ */
 export default class extends Phaser.State {
     init () {
         // Parameters

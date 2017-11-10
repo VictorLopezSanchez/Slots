@@ -1,6 +1,9 @@
 import Phaser from 'phaser'
 import WebFont from 'webfontloader'
 
+/**
+ * Class to load Loader gif and Fonts
+ */
 export default class extends Phaser.State {
     init () {
         this.stage.backgroundColor = '#EDEEC9'
