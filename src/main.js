@@ -9,6 +9,9 @@ import GameState from './states/Game'
 
 import config from './config'
 
+/**
+ * Initialize canvas, load states and start Boot state
+ */
 class Game extends Phaser.Game {
     constructor () {
         const docElement = document.documentElement

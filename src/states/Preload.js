@@ -11,9 +11,9 @@ export default class extends Phaser.State {
         this.load.setPreloadSprite(this.loaderBar)
 
         // load your assets
-      this.load.image('image1', './assets/images/slot-icon-03.png')
-      this.load.image('image2', './assets/images/slot-icon-04.png')
-      this.load.image('image3', './assets/images/slot-icon-05.png')
+        this.load.image('image1', './assets/images/slot-icon-03.png')
+        this.load.image('image2', './assets/images/slot-icon-04.png')
+        this.load.image('image3', './assets/images/slot-icon-05.png')
         this.load.image('background', 'assets/images/background.jpg')
     }
 
